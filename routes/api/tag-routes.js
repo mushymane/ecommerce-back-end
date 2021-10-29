@@ -47,16 +47,20 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
   try {
-    const tagData = await Tag.update({
-      tag_name: req.body
-    },
-    {
-      where: {
-        id: req.params.id
-      }
-    })
+    const tagData = await Tag.update(
+      req.body,
+      {
+        where: {
+          id: req.params.id
+        }
+      })
+    if(tagData[0] === 0) {
+      res.status(404).json({ message: 'Unable to find tag with that id, or requested tag name is the same as current' })
+      return;
+    }
     res.status(200).json(tagData)
   } catch (err) {
+    console.log(err)
     res.status(500).json(err)
   }
 });

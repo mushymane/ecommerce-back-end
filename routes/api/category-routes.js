@@ -62,7 +62,7 @@ router.put('/:id', async (req, res) => {
       // console.log(categoryData[0])
       console.log(categoryData)
     if (categoryData[0] === 0) {
-      res.status(404).json({ message: 'Unable to find category with that id, or category name is the same' })
+      res.status(404).json({ message: 'Unable to find category with that id, or requested category name is the same as current' })
       return;
     }
     res.status(200).json(categoryData)
