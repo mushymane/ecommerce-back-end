@@ -12,11 +12,14 @@ Product.belongsTo(Category, {
 // Categories have many Products
 Category.hasMany(Product, {
   foreignKey: 'category_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
+  // onUpdate: 'CASCADE'
 })
 
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
+  // onDelete: 'CASCADE',
+  // onUpdate: 'CASCADE',
   through: {
     model: ProductTag,
     unique: false
@@ -25,6 +28,8 @@ Product.belongsToMany(Tag, {
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
+  // onDelete: 'CASCADE',
+  // onUpdate: 'CASCADE',
   through: {
     model: ProductTag,
     unique: false
