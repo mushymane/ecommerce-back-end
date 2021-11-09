@@ -1,4 +1,5 @@
 # E-commerce Back End
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description 
 
@@ -71,6 +72,9 @@ router.put('/:id', async (req, res) => {
   }
 });
 ```
+## License
+
+This application is covered under the MIT license.
 
 ## Questions
 
